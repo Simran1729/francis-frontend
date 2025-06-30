@@ -188,7 +188,7 @@ export default function TicketForm() {
             <form 
               onSubmit={(e) => {
                 e.preventDefault();
-                form.handleSubmit((data) => (data))(e);
+                form.handleSubmit((data) => createTicket(data))(e);
               }} 
               className="space-y-4"
             >
