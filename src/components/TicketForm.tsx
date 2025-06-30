@@ -126,7 +126,7 @@ export default function TicketForm() {
         });
 
         // Use fetch directly for FormData
-        const response = await fetch('https://sunreef.loannow.in/api/create-ticket', {
+        const response = await fetch('http://localhost:3000/api/create-ticket', {
           method: 'POST',
           body: formData,
         });
@@ -188,7 +188,7 @@ export default function TicketForm() {
             <form 
               onSubmit={(e) => {
                 e.preventDefault();
-                form.handleSubmit((data) => createTicket(data))(e);
+                form.handleSubmit((data) => (data))(e);
               }} 
               className="space-y-4"
             >

@@ -138,7 +138,7 @@ export default function UserSelect() {
   ];
 
   useEffect(() => {
-    setSelectedUser("Nicolas Lapp");
+    setSelectedUser("Francis Lapp");
 
     const intervalId = setInterval(() => {
       setCurrentBgIndex((prevIndex) =>
@@ -202,7 +202,7 @@ export default function UserSelect() {
                     className="w-full h-8 object-contain rounded-lg border-gray-200 mb-8 mt-8 pr-2"
                   />
                   <h1 className="text-3xl sm:text-5xl font-bold bg-gradient-to-r from-gray-800 to-black text-transparent bg-clip-text tracking-tight">
-                    Hi, Nicolas!
+                    Hi, Francis!
                   </h1>
                   <motion.p
                     className="text-base sm:text-lg text-gray-600 font-medium"
