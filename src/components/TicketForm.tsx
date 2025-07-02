@@ -31,7 +31,7 @@ import {
 import { Loader2 } from "lucide-react";
 
 export default function TicketForm() {
-  const { extractedData, selectedUser, setStep, setTicketId  } = useVoice();
+  const { extractedData, selectedUser, setStep, setTicketId, step } = useVoice();
   const { toast } = useToast();
   const [progress, setProgress] = useState(0);
   const [selectedDepartment, setSelectedDepartment] = useState<string>("");
@@ -197,7 +197,10 @@ export default function TicketForm() {
                 name="projectCode"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Project Code <span className="text-xs text-red-500 font-normal">(Please ensure code is valid)</span>
+                    <FormLabel>Project Code {
+                      step === 3 && extractedData?.projectCode === "" &&
+                       <span className="text-xs text-red-500 font-normal">(Please ensure project number is valid)</span>
+                      }
                        </FormLabel>
                     <FormControl>
                       <Input {...field} />
