@@ -2,6 +2,7 @@ import { TicketFormData } from "@shared/schema";
 import { getDepartmentByName } from "./departments";
 
 const OPENAI_API_KEY = import.meta.env.VITE_OPENAI_API_KEY;
+const VITE_BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
 
 export async function transcribeAudio(audioBlob: Blob): Promise<{ text: string }> {
   const formData = new FormData();
@@ -109,7 +110,7 @@ export async function extractTicketData(text: string): Promise<TicketFormData> {
   console.log("This is the extracted data form the audio : ", extractedData);
 
 
-  const getprojectCode = await fetch("https://francis-backend.vercel.app/get-projectcode", {
+  const getprojectCode = await fetch(`${VITE_BACKEND_URL}/get-projectcode`, {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
@@ -129,7 +130,6 @@ export async function extractTicketData(text: string): Promise<TicketFormData> {
    if(!flag) {
     extractedData.projectCode = "";
    }
- 
  
 
   // Get department ID
